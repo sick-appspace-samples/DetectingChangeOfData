@@ -84,12 +84,13 @@ local function main()
 
     -- Visualize frame with difference
     v:clear()
-    v:addProfile(curFrameProfile, graphDeco(BLUE, 'Scan'))
-    v:addProfile(changeProfile, graphDeco(ORANGE, '', true))
+    local id = v:addProfile(curFrameProfile, graphDeco(BLUE, 'Scan'))
+    v:addProfile(changeProfile, graphDeco(ORANGE, '', true), nil, id)
     v:present()
 
     Script.sleep(frameTimeout)
   end
+  print("App finished")
 end
 Script.register('Engine.OnStarted', main)
 
